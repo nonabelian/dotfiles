@@ -30,19 +30,9 @@ let python_highlight_all=1
 let g:airline_theme='bubblegum'
 let g:airline_powerline_fonts = 1
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
 " -----------------------------------------------------------
 " 						Syntastic settings
 " -----------------------------------------------------------
-"let g:syntastic_python_checkers=['pyflakes']
-"let g:syntastic_always_populate_loc_list = 0                                    
-"let g:syntastic_auto_loc_list = 0
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 1
-
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -51,8 +41,13 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
+"let g:syntastic_enable_signs = 0
+"let g:syntastic_enable_balloons = 0
+"let g:syntastic_echo_current_error = 0
 let g:syntastic_enable_highlighting = 0
-let g:syntastic_python_checker = ["flake8"]
+"let g:syntastic_debug = 32
+"let g:syntastic_mode_map = {"mode": "passive"}
+"let g:syntastic_python_checker = ["pyflakes"]
 
 " -----------------------------------------------------------
 " 						CtrlP settings
@@ -130,6 +125,9 @@ map ,n :NERDTreeToggle <CR>
 map ,f :NERDTreeFind <CR>
 
 map <C-Z> :sh <CR>		" Make suspend spawn a shell
+
+" Syntax Checking
+map ,t :SyntasticCheck pylint <CR>
 
 " Tags!
 map ,s :vsp <CR>:exec("tag ".expand("<cword>"))<CR>

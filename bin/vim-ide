@@ -1,0 +1,23 @@
+#!/bin/bash
+
+session="work"
+
+# set up tmux
+tmux start-server
+
+tmux new-session -d -s $session -n vim
+
+tmux selectp -t 1
+tmux send-keys "source activate py36; vim" C-m
+
+tmux splitw -v -p 20
+tmux selectp -t 2
+tmux send-keys "source activate py36" C-m
+
+tmux selectp -t 1
+
+# Return to main vim window
+tmux select-window -t $session:0
+
+# Finished setup, attach to the tmux session!
+tmux attach-session -t $session
