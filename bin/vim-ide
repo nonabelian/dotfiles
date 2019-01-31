@@ -1,6 +1,18 @@
 #!/bin/bash
 
-session="work"
+if [ "$1" != "" ]; then
+	env="$1"
+else
+	echo "Must specify an env"
+	echo "USAGE: vim-ide <env> <session-name>"
+	exit 1
+fi
+
+if [ "$2" != "" ]; then
+	session="$2"
+else
+	session="work"
+fi
 
 # set up tmux
 tmux start-server
@@ -8,11 +20,11 @@ tmux start-server
 tmux new-session -d -s $session -n vim
 
 tmux selectp -t 1
-tmux send-keys "source activate py36; vim" C-m
+tmux send-keys "source activate $env; vim" C-m
 
 tmux splitw -v -p 20
 tmux selectp -t 2
-tmux send-keys "source activate py36" C-m
+tmux send-keys "source activate $env" C-m
 
 tmux selectp -t 1
 
