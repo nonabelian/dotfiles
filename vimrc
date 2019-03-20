@@ -99,6 +99,7 @@ set background=light
 
 " Set 4-space tabs for everything.  Later can change to be file specific.
 set tabstop=4 softtabstop=0 noexpandtab shiftwidth=4
+set number
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
