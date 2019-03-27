@@ -26,6 +26,8 @@ set clipboard=unnamed
 set encoding=utf-8
 
 let g:NERDTreeWinSize = 37
+set wildignore+=*.pyc,__pycache__,*.swp
+let NERDTreeRespectWildIgnore=1
 let python_highlight_all=1
 let g:airline_theme='bubblegum'
 let g:airline_powerline_fonts = 1
@@ -95,6 +97,7 @@ set errorformat=%f:%l:\ %m  " some super cool vim ideas courtesy of silas
 set noerrorbells vb t_vb=   " i'd like to give him 'mad props'
 set laststatus=2
 set background=light
+"set tags=tags;/
 "set statusline=%1*%n:%f\ %=%l/%L\ \ \ \ \ \ \ \ %%%p\ \ \ \ \ \ \ \ \ %{GetTime()}
 
 " Set 4-space tabs for everything.  Later can change to be file specific.
